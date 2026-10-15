@@ -5,6 +5,7 @@ const { v4: uuidv4 } = require("uuid");
 const methodOverride = require("method-override");
 const multer = require("multer");
 
+
 let port = process.env.PORT || 8080;
 // Multer Storage Configuration (Photos ko public/uploads me save karne ke liye)
 const storage = multer.diskStorage({
@@ -102,3 +103,4 @@ app.delete("/ig/:id", (req, res) => {
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/ig`);
 });
+module.exports = app;
