@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: #fafafa;
+    color: #262626;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px 10px;
+}
+
+.edit-wrapper {
+    width: 100%;
+    max-width: 440px;
+    background: #ffffff;
+    border: 1px solid #dbdbdb;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.edit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    border-bottom: 1px solid #efefef;
+}
+
+.edit-header h2 {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.cancel-link {
+    font-size: 0.9rem;
+    color: #262626;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cancel-link:hover {
+    color: #ed4956;
+}
+
+/* User & Image Card */
+.post-preview-card {
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fafafa;
+    border-bottom: 1px solid #efefef;
+}
+
+.post-thumb-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid #dbdbdb;
+}
+
+.user-meta .username {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #262626;
+}
+
+.user-meta .posting-date {
+    font-size: 0.78rem;
+    color: #8e8e8e;
+}
+
+/* Form Styles */
+.edit-form {
+    padding: 18px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #404040;
+}
+
+.edit-textarea {
+    width: 100%;
+    height: 130px;
+    padding: 12px;
+    border: 1px solid #dbdbdb;
+    border-radius: 8px;
+    resize: none;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.edit-textarea:focus {
+    border-color: #a8a8a8;
+    box-shadow: 0 0 0 2px rgba(0, 149, 246, 0.15);
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 0.75rem;
+    color: #8e8e8e;
+    margin-top: 4px;
+}
+
+/* Submit Button */
+.btn-update {
+    width: 100%;
+    background-color: #0095f6;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-update:hover {
+    background-color: #1877f2;
+}
+
+.btn-update:active {
+    transform: scale(0.99);
+}

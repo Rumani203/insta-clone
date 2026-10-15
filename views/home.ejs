@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Feed</title>
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+    <div class="app-layout">
+        <!-- Top App Header -->
+        <header class="top-nav">
+            <div class="logo-area">
+                <h1 class="logo-text">Instagram</h1>
+                <i class="fa-solid fa-chevron-down nav-arrow"></i>
+            </div>
+            <div class="top-icons">
+                <i class="fa-regular fa-heart nav-icon" onclick="alert('No new notifications!')"></i>
+                <i class="fa-brands fa-facebook-messenger nav-icon" onclick="alert('No new messages!')"></i>
+            </div>
+        </header>
+
+        <!-- Search Bar & Instant Profile Search Dropdown -->
+        <div id="search-section" class="search-section hide">
+            <div class="search-input-wrapper">
+                <i class="fa-solid fa-magnifying-glass search-inner-icon"></i>
+                <input type="text" id="feed-search" placeholder="Search profiles or accounts..." oninput="searchProfiles()">
+                <i class="fa-solid fa-circle-xmark clear-search-icon" onclick="clearSearch()"></i>
+            </div>
+            <!-- Search Results Container -->
+            <div id="search-results-box" class="search-results-box hide"></div>
+        </div>
+
+        <!-- Stories Carousel (Har ek me username aur uski profile photo pass ki gayi hai) -->
+        <section class="stories-container">
+            <div class="story-item" onclick="openStory('Your Story', 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80')">
+                <div class="story-avatar-wrapper your-story">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Your Story" class="story-img">
+                    <span class="plus-badge"><i class="fa-solid fa-plus"></i></span>
+                </div>
+                <span class="story-username">Your story</span>
+            </div>
+
+            <div class="story-item" onclick="openStory('ananya', 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80')">
+                <div class="story-avatar-wrapper gradient-border">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" alt="Girl" class="story-img">
+                </div>
+                <span class="story-username">ananya</span>
+            </div>
+
+            <div class="story-item" onclick="openStory('milo_cat', 'https://images.unsplash.com/photo-1577023311546-cdc07a8454d9?auto=format&fit=crop&w=800&q=80')">
+                <div class="story-avatar-wrapper gradient-border">
+                    <img src="https://images.unsplash.com/photo-1577023311546-cdc07a8454d9?auto=format&fit=crop&w=400&q=80" alt="Cat" class="story-img">
+                </div>
+                <span class="story-username">milo_cat</span>
+            </div>
+
+            <div class="story-item" onclick="openStory('rocky_pup', 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80')">
+                <div class="story-avatar-wrapper gradient-border">
+                    <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=400&q=80" alt="Dog" class="story-img">
+                </div>
+                <span class="story-username">rocky_pup</span>
+            </div>
+
+            <div class="story-item" onclick="openStory('nature_lens', 'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=80')">
+                <div class="story-avatar-wrapper gradient-border">
+                    <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=400&q=80" alt="Wildlife" class="story-img">
+                </div>
+                <span class="story-username">nature_lens</span>
+            </div>
+        </section>
+
+        <!-- Post Feed -->
+        <main class="feed-container" id="feed-container">
+            <% for(let post of posts) { %>
+                <article class="post-card" data-post-id="<%= post.id %>" data-username="<%= post.username.toLowerCase() %>" data-caption="<%= post.caption.toLowerCase() %>">
+                    <!-- Post Header -->
+                    <div class="post-header">
+                        <div class="post-user-info" onclick="openStory('<%= post.username %>', '<%= post.image %>')">
+                            <div class="post-avatar-ring">
+                                <img src="<%= post.image %>" alt="<%= post.username %>" class="post-avatar">
+                            </div>
+                            <span class="post-username"><%= post.username %></span>
+                        </div>
+                        <button class="more-options-btn" onclick="toggleMenu('<%= post.id %>')">
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+
+                        <div class="options-dropdown" id="menu-<%= post.id %>">
+                            <a href="/ig/<%= post.id %>/edit" class="dropdown-item edit-btn">
+                                <i class="fa-solid fa-pen-to-square"></i> Edit
+                            </a>
+                            <form action="/ig/<%= post.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Delete this post?');">
+                                <button type="submit" class="dropdown-item delete-btn">
+                                    <i class="fa-solid fa-trash"></i> Delete
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Post Media with Double-Tap Like -->
+                    <div class="post-media-container" ondblclick="handleDoubleTap(this)">
+                        <img class="post-media" src="<%= post.image %>" alt="Post">
+                        <i class="fa-solid fa-heart double-tap-heart"></i>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="post-actions">
+                        <div class="left-actions">
+                            <button class="action-btn like-btn" onclick="toggleLike(this)">
+                                <i class="fa-regular fa-heart"></i>
+                            </button>
+                            <button class="action-btn comment-btn" onclick="openComments('<%= post.username %>')">
+                                <i class="fa-regular fa-comment"></i>
+                            </button>
+                            <button class="action-btn share-btn" onclick="sharePost('<%= post.username %>')">
+                                <i class="fa-regular fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div class="right-actions">
+                            <button class="action-btn bookmark-btn" onclick="toggleSave(this)">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Post Body Details -->
+                    <div class="post-body">
+                        <p class="likes-count" data-count="<%= parseInt(post.likes) || 0 %>"><%= post.likes %></p>
+                        <p class="caption-line">
+                            <span class="caption-username"><%= post.username %></span>
+                            <span class="caption-text"><%= post.caption %></span>
+                        </p>
+                        <p class="view-comments" onclick="openComments('<%= post.username %>')"><%= post.view %></p>
+                        <span class="posting-time"><%= post.postingTime %></span>
+                    </div>
+                </article>
+            <% } %>
+        </main>
+
+        <!-- Instagram Fullscreen Story Modal -->
+        <div id="story-modal" class="story-modal hide">
+            <div class="story-progress-bar">
+                <div id="story-progress" class="story-progress-fill"></div>
+            </div>
+            
+            <div class="story-modal-header">
+                <div class="story-modal-user">
+                    <img id="story-modal-avatar" src="" alt="avatar">
+                    <span id="story-modal-name"></span>
+                </div>
+                <button class="story-close-btn" onclick="closeStory()">&times;</button>
+            </div>
+
+            <!-- Profile photo / story photo centered viewer -->
+            <div class="story-image-wrap">
+                <img id="story-modal-image" src="" alt="Story Image">
+            </div>
+        </div>
+
+        <!-- Comments Drawer Bottom Sheet -->
+        <div id="comments-sheet" class="comments-sheet hide">
+            <div class="comments-header">
+                <h3>Comments</h3>
+                <span class="close-sheet" onclick="closeComments()">&times;</span>
+            </div>
+            <div id="comments-list" class="comments-list">
+                <div class="comment-item"><strong>alex:</strong> Amazing shot! 🔥</div>
+                <div class="comment-item"><strong>sarah:</strong> Love this vibe ✨</div>
+            </div>
+            <div class="comment-input-box">
+                <input type="text" id="new-comment-input" placeholder="Add a comment...">
+                <button onclick="postComment()">Post</button>
+            </div>
+        </div>
+
+        <!-- Instagram Bottom Navigation Bar -->
+        <nav class="bottom-bar">
+            <a href="/ig" class="nav-item active"><i class="fa-solid fa-house"></i></a>
+            <a href="javascript:void(0)" class="nav-item" onclick="toggleSearch()"><i class="fa-solid fa-magnifying-glass"></i></a>
+            <a href="/ig/new" class="nav-item new-post-nav"><i class="fa-regular fa-square-plus"></i></a>
+            <a href="javascript:void(0)" class="nav-item" onclick="toggleReels()"><i class="fa-solid fa-film"></i></a>
+            <a href="javascript:void(0)" class="nav-item" onclick="showProfile()"><i class="fa-regular fa-circle-user"></i></a>
+        </nav>
+    </div>
+
+    <script src="/home.js"></script>
+</body>
+</html>

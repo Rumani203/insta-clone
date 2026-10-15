@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/insta.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <title>Insta</title>
+</head>
+
+<body>
+    <div id="container">
+        <h2 id="heading">Instagram</h2>
+        <h3>UserName : @<%= data.name %>
+        </h3>
+        <div id="about">
+            <div>
+                <img id="profile" src="<%= data.profile %>">
+                <p>
+                    <%= data.name %>
+                </p>
+            </div>
+
+            <div id="post">
+                <p>
+                    <b>
+                        3
+                    </b>
+                </p>
+                <p>posts</p>
+            </div>
+            <div id="followers">
+                <p>
+                    <b>
+                        <%= data.followers %>
+                    </b>
+                </p>
+                <p>followers</p>
+            </div>
+            <div id="following">
+                <p>
+                    <b>
+                        <%= data.following %>
+                    </b>
+                </p>
+                <p>following</p>
+            </div>
+        </div>
+        <div>
+            <p id="caption">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br>
+                Lorem ipsum dolor sit amet consectetur adipisicing. <br>
+                Lorem, ipsum dolor. <br>
+            </p>
+        </div>
+        <div id="btnsDiv">
+            <button class="btns">Following <i class="fa-solid fa-chevron-down"></i></button>
+            <button class="btns">Message</button>
+            <button id="btn">+</button>
+        </div>
+        <div id="highlits">
+            <div>
+                <img class="highlit" src="<%= data.profile %>">
+                <p class=" hls ">Highlights.</p>
+            </div>
+            <div>
+                <img class="highlit" src="<%= data.profile %>">
+                <p class=" hls ">Highlights.</p>
+            </div>
+            <div>
+                <img class="highlit" src="<%= data.profile %>">
+                <p class=" hls ">Highlights.</p>
+            </div>
+        </div>
+        <div>
+            <div id="posts">
+                <% for(post of data.posts ) { %>
+                    <div id="pics">
+
+                        <img class="images" src="<%=post.image %>">
+                        <div id="like">
+                            <p>&hearts; : <%=post.likes %>
+                            </p>
+                            <p>comment : <%= post.comments %>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <% } %>
+            </div>
+        </div>
+        <br><br>
+        <hr>
+    </div>
+</body>
+
+</html>

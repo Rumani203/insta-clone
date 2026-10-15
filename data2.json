@@ -1,0 +1,53 @@
+{
+    "posts": [
+        {
+            "image": "https://plus.unsplash.com/premium_photo-1677545182067-26ac518ef64f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2F0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+            "likes": 200,
+            "caption":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit incidunt quaerat recusandae unde, suscipit nihil quos sunt repudiandae dolore corrupti vero porro accusamus facere ad deleniti eveniet? Deserunt, quae tempore!",
+            "comments": "view all 34 comments",
+            "postingTime" :"32 days ago"
+        },
+        {
+            "image": "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+            "likes": 312,
+            "caption":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit incidunt quaerat recusandae unde, suscipit nihil quos sunt repudiandae dolore corrupti vero porro accusamus facere ad deleniti eveniet? Deserunt, quae tempore!",
+            "comments": "view all 34 comments",
+            "postingTime" :"32 days ago"
+        },
+        {
+            "image": "https://images.unsplash.com/photo-1577023311546-cdc07a8454d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2F0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+            "likes": 1065,
+            "caption":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit incidunt quaerat recusandae unde, suscipit nihil quos sunt repudiandae dolore corrupti vero porro accusamus facere ad deleniti eveniet? Deserunt, quae tempore!",
+            "comments": "view all 34 comments",
+            "postingTime" :"32 days ago"
+        },
+        {
+            "image": "https://plus.unsplash.com/premium_photo-1677545182067-26ac518ef64f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2F0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+            "likes": 200,
+            "caption":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit incidunt quaerat recusandae unde, suscipit nihil quos sunt repudiandae dolore corrupti vero porro accusamus facere ad deleniti eveniet? Deserunt, quae tempore!",
+            "comments": "view all 34 comments",
+            "postingTime" :"32 days ago"
+        },
+        {
+            "image": "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+            "likes": 312,
+            "caption":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit incidunt quaerat recusandae unde, suscipit nihil quos sunt repudiandae dolore corrupti vero porro accusamus facere ad deleniti eveniet? Deserunt, quae tempore!",
+            "comments": "view all 34 comments",
+            "postingTime" :"32 days ago"
+        },
+        {
+            "image": "https://images.unsplash.com/photo-1577023311546-cdc07a8454d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2F0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+            "likes": 1065,
+            "caption":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit incidunt quaerat recusandae unde, suscipit nihil quos sunt repudiandae dolore corrupti vero porro accusamus facere ad deleniti eveniet? Deserunt, quae tempore!",
+            "comments": "view all 34 comments",
+            "postingTime" :"32 days ago"
+        },
+        {
+            "image": "https://plus.unsplash.com/premium_photo-1677545182067-26ac518ef64f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2F0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+            "likes": 200,
+            "caption":"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit incidunt quaerat recusandae unde, suscipit nihil quos sunt repudiandae dolore corrupti vero porro accusamus facere ad deleniti eveniet? Deserunt, quae tempore!",
+            "comments": "view all 34 comments",
+            "postingTime" :"32 days ago"
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post • Instagram</title>
+    <link rel="stylesheet" href="/edit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+    <div class="edit-wrapper">
+        <!-- Header Bar -->
+        <div class="edit-header">
+            <a href="/ig" class="cancel-link">Cancel</a>
+            <h2>Edit Info</h2>
+            <div style="width: 45px;"></div>
+        </div>
+
+        <!-- Post Info Preview -->
+        <div class="post-preview-card">
+            <img src="<%= post.image %>" alt="<%= post.username %>" class="post-thumb-img">
+            <div class="user-meta">
+                <div class="username">@<%= post.username %></div>
+                <div class="posting-date"><%= post.postingTime %> • <%= post.likes %></div>
+            </div>
+        </div>
+
+        <!-- Form for Updating Caption -->
+        <form action="/ig/<%= post.id %>?_method=PATCH" method="POST" class="edit-form">
+            <div class="form-group">
+                <label for="caption">Write a caption...</label>
+                <textarea 
+                    id="caption" 
+                    name="caption" 
+                    class="edit-textarea" 
+                    placeholder="Write a caption..." 
+                    maxlength="500" 
+                    oninput="updateCount(this)" 
+                    required><%= post.caption %></textarea>
+                <div class="char-counter"><span id="current-count">0</span> / 500</div>
+            </div>
+
+            <button type="submit" class="btn-update">Done</button>
+        </form>
+    </div>
+
+    <script>
+        // Character count setup
+        const textarea = document.getElementById('caption');
+        const countSpan = document.getElementById('current-count');
+
+        function updateCount(el) {
+            countSpan.textContent = el.value.length;
+        }
+
+        // Initial load count
+        updateCount(textarea);
+        
+    </script>
+</body>
+</html>
